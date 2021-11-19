@@ -18,10 +18,11 @@ const studyDocSchema: CollectionCreateSchema = {
   fields: [
     { name: 'title', type: 'string', facet: false },
     { name: 'author', type: 'string', facet: false },
-    { name: 'content', type: 'string', facet: false },
+    // { name: 'content', type: 'string', facet: false },
     { name: 'courseCode', type: 'int32', facet: true },
     { name: 'year', type: 'int32', facet: true },
     { name: 'description', type: 'string', facet: false },
+    { name: 'tags', type: 'string[]', facet: false },
   ],
 };
 

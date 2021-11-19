@@ -2,12 +2,14 @@ import { EntityRepository, wrap } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { Subject } from '../../subjects/subject.entity';
+import { client } from '../../typesense-test';
 import type { User } from '../../users/user.entity';
 import type { CreateStudyDocDto } from '../dto/create-study-doc.dto';
 import type { UpdateStudyDocDto } from '../dto/update-study-doc.dto';
 import { DocSeries } from '../entities/doc-series.entity';
 import type { FileUpload } from '../entities/file-upload.entity';
 import { StudyDoc } from '../entities/study-doc.entity';
+
 
 @Injectable()
 export class StudyDocsService {
@@ -31,6 +33,7 @@ export class StudyDocsService {
       ...createStudyDocDto, subject, file, docSeries,
     });
     await this.studyDocRepository.persistAndFlush(studyDoc);
+    await this.indexDocumentTypeSense(studyDoc);
     return studyDoc;
   }
 
@@ -57,6 +60,7 @@ export class StudyDocsService {
 
     wrap(studyDoc).assign(updateCourseDto);
     await this.studyDocRepository.flush();
+    await this.updateDocumentTypeSense(studyDocId, updateCourseDto);
     return studyDoc;
   }
 
@@ -68,5 +72,37 @@ export class StudyDocsService {
       throw new ForbiddenException('Not the author');
 
     await this.studyDocRepository.removeAndFlush(studyDoc);
+    await this.deleteDocumentTypeSense(studyDocId);
+  }
+
+  public async indexDocumentTypeSense(studyDoc: StudyDoc): Promise<void> {
+    const document = {
+      id: studyDoc.studyDocId,
+      title: studyDoc.name,
+      author: studyDoc.file.author,
+      // Content: ,
+      courseCode: studyDoc.docSeries?.docSeriesId,
+      year: studyDoc.year,
+      description: studyDoc.description,
+      tags: studyDoc.tags,
+    };
+
+    void await client.collections('studyDoc').documents().create(document);
+  }
+
+  public async updateDocumentTypeSense(studyDocID: number, updateCourseDto: UpdateStudyDocDto): Promise<void> {
+    const document = {
+      title: updateCourseDto.name,
+      courseDoc: updateCourseDto.docSeries,
+      year: updateCourseDto.year,
+      description: updateCourseDto.description,
+      tags: updateCourseDto.tags,
+    };
+
+    void await client.collections('studyDoc').documents(studyDocID.toString()).update(document);
+  }
+
+  public async deleteDocumentTypeSense(studyDocID: number): Promise<void> {
+    void await client.collections('studyDoc').documents(studyDocID.toString()).delete();
   }
 }
