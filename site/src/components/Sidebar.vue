@@ -23,13 +23,13 @@
     </div>
 
     <div class="overflow-y-auto overflow-x-hidden app-scrollbar-on-hover">
-      <div class="divide-y md-max:divide-gray-200">
+      <div class="xl-max:divide-y xl-max:divide-gray-200">
         <ul
           v-for="[sectionName, sectionLinks] in Object.entries(links)"
           :key="sectionName"
           class="py-2"
         >
-          <p class="hidden 2xl:block text-5 uppercase py-2">
+          <p class="hidden 2xl:block text-5 uppercase py-2 pl-2">
             {{ sectionName }}
           </p>
           <template
@@ -40,13 +40,13 @@
               <router-link
                 v-if="link.condition == undefined || condition(link.condition)"
                 :to="link.to"
-                class="py-1 flex w-full items-center transition-colors horizontal-tab duration-300 cursor-pointer opacity-80"
+                class="py-1 flex w-11/12 items-center transition-colors horizontal-tab duration-300 cursor-pointer opacity-80 mx-auto text-2"
                 :class="{ active: link.to === $route.path }"
               >
-                <div class="flex flex-col 2xl:flex-row 2xl:space-x-4 2xl:ml-5 items-center w-full mb-1 text-2">
+                <div class="flex flex-col 2xl:flex-row 2xl:space-x-4 2xl:ml-5 items-center w-full mb-1">
                   <i
                     :class="link.icon"
-                    class="flex-shrink-0 text-2xl"
+                    class="flex-shrink-0 text-2xl "
                   />
                   <span class="text-sm">{{ link.text }}</span>
                 </div>
@@ -103,7 +103,8 @@ export default {
           { to: '/posts', text: 'Tous les Posts', icon: 'ri-chat-check-line' }
         ],
         autre: [
-          { to: '/my-account', text: 'Mon compte', icon: 'ri-account-box-line', condition: 'loggedIn' },
+          { to: '/profil', text: 'Mon compte', icon: 'ri-account-box-line', condition: 'loggedIn' },
+          { to: '/settings', text: 'Paramètre', icon: 'ri-settings-3-line', condition: 'loggedIn' },
           { to: '/rgpd', text: 'RGPD', icon: 'ri-database-2-line' },
           { to: '/horizon', text: 'Horizon', icon: 'ri-information-line' }
         ]

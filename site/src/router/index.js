@@ -19,7 +19,7 @@ const routes = [
     component: Landing
   },
   {
-    path: '/profile',
+    path: '/profil',
     component: () => import('@/pages/Profile.vue')
   },
   {

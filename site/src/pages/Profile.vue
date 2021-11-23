@@ -15,10 +15,10 @@
       <div class="flex flex-col min-h-screen pr-8 border-r-2 space-y-4 w-3/6">
         <div>
           <div class="text-2xl">
-            Théo Lasnier
+            Name
           </div>
           <div class="text-gray-500">
-            L2 INT1
+            Class
           </div>
         </div>
 
