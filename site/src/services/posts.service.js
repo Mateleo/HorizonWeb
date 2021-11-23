@@ -9,6 +9,12 @@ class PostsService {
     )
   }
 
+  getPost (postId) {
+    return axios.get(API_URL + `posts/${postId}`, { withCredentials: true }).then(
+      res => res.data
+    )
+  }
+
   addPost (post) {
     return axios.post(API_URL + 'posts', post, { withCredentials: true }).then(
       res => res.data

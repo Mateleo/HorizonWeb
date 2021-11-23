@@ -23,14 +23,17 @@
     </div>
 
     <div class="overflow-y-auto overflow-x-hidden app-scrollbar-on-hover">
-      <div class="divide-y divide-color-1">
+      <div class="divide-y md-max:divide-gray-200">
         <ul
-          v-for="linkSection of links"
-          :key="linkSection"
+          v-for="[sectionName, sectionLinks] in Object.entries(links)"
+          :key="sectionName"
           class="py-2"
         >
+          <p class="hidden 2xl:block text-5 uppercase py-2">
+            {{ sectionName }}
+          </p>
           <template
-            v-for="link of linkSection"
+            v-for="link of sectionLinks"
             :key="link"
           >
             <li>
@@ -40,7 +43,7 @@
                 class="py-1 flex w-full items-center transition-colors horizontal-tab duration-300 cursor-pointer opacity-80"
                 :class="{ active: link.to === $route.path }"
               >
-                <div class="flex flex-col items-center w-full mt-1 mb-2 text-2">
+                <div class="flex flex-col 2xl:flex-row 2xl:space-x-4 2xl:ml-5 items-center w-full mb-1 text-2">
                   <i
                     :class="link.icon"
                     class="flex-shrink-0 text-2xl"
@@ -52,7 +55,10 @@
           </template>
         </ul>
 
-        <div class="flex flex-col py-4 items-center">
+        <div class="flex py-4 space-x-4 items-center justify-center">
+          <p class="hidden 2xl:block text-1 text-bold">
+            Dark Mode
+          </p>
           <switch-input
             v-model="theme"
             @click="$store.dispatch('userConfig/switchTheme')"
@@ -82,26 +88,26 @@ export default {
       default: true
     },
     links: {
-      type: Array,
-      default: () => [
-        [
+      type: Object,
+      default: () => ({
+        forum: [
           { to: '/', text: 'Accueil', icon: 'ri-home-3-line' },
           { to: '/info', text: 'Annonces', icon: 'ri-alarm-warning-line' },
           { to: '/dashboard', text: 'Admin', icon: 'ri-pie-chart-box-line' }
         ],
-        [
+        'docs sharing': [
           { to: '/file-upload', text: 'Docs Sharing', icon: 'ri-folder-upload-line' }
         ],
-        [
+        post: [
           { to: '/new-post', text: 'Créer un Post', icon: 'ri-chat-new-line' },
           { to: '/posts', text: 'Tous les Posts', icon: 'ri-chat-check-line' }
         ],
-        [
+        autre: [
           { to: '/my-account', text: 'Mon compte', icon: 'ri-account-box-line', condition: 'loggedIn' },
           { to: '/rgpd', text: 'RGPD', icon: 'ri-database-2-line' },
           { to: '/horizon', text: 'Horizon', icon: 'ri-information-line' }
         ]
-      ]
+      })
     }
   },
   emits: [

@@ -1,8 +1,15 @@
 $topbar-height: 4.5rem;
 $sidebar-width: 8rem;
+$sidebar-width-lg: 14rem;
 
 .w-sidebar {
   width: $sidebar-width;
+}
+
+@media (min-width: 1536px) {
+  .w-sidebar {
+    width: $sidebar-width-lg;
+  }
 }
 
 .h-topbar {

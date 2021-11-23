@@ -88,7 +88,6 @@ export default {
   methods: {
     handleLogin () {
       this.loading = true
-
       if (this.user.username && this.user.password) {
         this.$store.dispatch('auth/login', this.user).then(
           (data) => {
@@ -101,6 +100,7 @@ export default {
                 (error.response && error.response.data) ||
                 error.message ||
                 error.toString()
+            console.log(this.message)
           }
         )
       }

@@ -19,6 +19,10 @@ const routes = [
     component: Landing
   },
   {
+    path: '/profile',
+    component: () => import('@/pages/Profile.vue')
+  },
+  {
     path: '/post/:id',
     component: () => import('@/pages/Post/ThreadCompactView.vue'),
     props: {
@@ -220,7 +224,7 @@ const routes = [
   },
 
   {
-    path: '/my-account',
+    path: '/settings',
     component: () => import('@/pages/Settings.vue')
   },
 

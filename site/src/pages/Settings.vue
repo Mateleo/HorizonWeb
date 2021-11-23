@@ -64,22 +64,28 @@
 </template>
 
 <script lang="js">
-import Profile from '@/components/Profile.vue'
+import Badge from '../components/Badge.vue'
+import ExternalAccount from '../components/ExternalAccount.vue'
+import Association from '../components/Association.vue'
 export default {
   components: {
-    Profile
+    Badge,
+    ExternalAccount,
+    Association
   },
   inheritAttrs: false,
   data () {
     return {
-      currentComponent: 'Profile',
+      currentComponent: Badge,
       links: [
-        { text: 'Profil', icon: 'ri-profile-line', component: 'Profile' },
-        { text: 'Intégration Discord', icon: 'ri-discord-fill', component: 'Discord' }
+        { text: 'Badges', icon: 'ri-profile-line', component: Badge },
+        { text: 'Compte lié', icon: 'ri-links-line', component: ExternalAccount },
+        { text: 'Assos', icon: 'ri-discord-fill', component: Association }
         // TODO: { text: "Rôles Ef'Réussite", icon: 'ri-book-mark-line', component: 'Roles' }
       ]
     }
   }
+
 }
 </script>
 

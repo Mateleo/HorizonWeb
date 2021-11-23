@@ -14,9 +14,12 @@
       />
     </div>
     <div class="flex flex-col min-w-0">
-      <div class="font-semibold truncate">
+      <router-link
+        class="font-semibold truncate hover:underline"
+        to="/profile"
+      >
         {{ username }}
-      </div>
+      </router-link>
       <div class="truncate">
         {{ email }}
       </div>

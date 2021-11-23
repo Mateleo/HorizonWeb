@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 py-6">
+  <div class="w-full lg:w-21/24 mx-auto py-6">
     <div class="text-1">
       <div class="px-4 pt-4 text-3xl font-bold mb-2">
         {{ thread.post.title }}
@@ -107,10 +107,13 @@
       </div>
     </div>
   </div>
+  <button onclick="console.log(this.thread_post)">
+    click
+  </button>
 </template>
 
 <script lang="js">
-import { defineComponent } from 'vue'
+import { defineComponent, watch } from 'vue'
 import Reply from '@/components/Reply.vue'
 import Tag from '@/components/Tag.vue'
 import Contributors from '@/components/Contributor.vue'
@@ -132,7 +135,37 @@ export default defineComponent({
       required: true
     }
   },
+  data () {
+    return { thread_post: this.$store.state.post }
+  },
+  computed: {
+    loggedIn () {
+      return this.$store.state.auth.status.loggedIn
+    }
+  },
+  mounted () {
+    this.emitter.on('login', () => {
+      this.loadPost()
+    })
+
+    this.emitter.on('logout', () => {
+      this.$store.dispatch('post/refreshPost')
+    })
+
+    watch(() => this.$store.getters['post/getPost'], (post) => {
+      this.thread_post = post
+    })
+
+    if (this.loggedIn) {
+      this.loadPost()
+    }
+  },
   methods: {
+    loadPost () {
+      console.log(this.$store.state.post)
+
+      this.$store.dispatch('post/fetchPost', this.$route.params.id)
+    },
     timeAgo (input, style) {
       const date = (input instanceof Date) ? input : new Date(input)
       const formatter = new Intl.RelativeTimeFormat('fr', { style })
