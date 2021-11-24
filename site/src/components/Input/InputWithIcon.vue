@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row text-gray-600 focus-within:text-gray-900 dark:text-gray-400 dark:focus-within:text-white">
     <i
-      class="flex items-center py-1 px-2 bg-3 rounded-l-md border-r-0 border-gray-300 dark:border-white border"
+      class="flex items-center py-1 px-2 bg-2 rounded-l-md"
       :class="icon"
     />
     <input

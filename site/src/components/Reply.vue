@@ -3,15 +3,10 @@
     <div class="text-1">
       <div class="flex">
         <div class="flex flex-col flex-shrink-0 w-20 items-center text-lg">
-          <!-- <i class="ri-arrow-up-s-fill ri-2x" />
-          <div class="text-center">
-            {{ reply.upvotes }}
-          </div>
-          <i class="ri-arrow-down-s-fill ri-2x" /> -->
           <img
             :src="reply.creator.img"
             alt="Profile Picture"
-            class="w-16 h-16 rounded mt-2"
+            class="w-14 h-14 rounded mt-2"
           >
           <div class="font-medium">
             {{ reply.creator.pseudo }}

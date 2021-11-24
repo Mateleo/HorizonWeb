@@ -1,18 +1,11 @@
 <template>
   <div class="m-0 text-2">
-    <div class="m-0 absolute py-12 hero h-52 w-full top-0 left-0">
-      <h3
-        class="text-4xl font-bold mb-8 text-0"
-        style="padding-left: 5%; padding-right: 5%"
-      >
-        Paramètres
-      </h3>
-    </div>
+    <div class="m-0 absolute py-12 hero h-52 w-full top-0 left-0" />
     <div
       class="
         height
         relative
-        mt-32
+        mt-10
         mb-10
         card
         p-0

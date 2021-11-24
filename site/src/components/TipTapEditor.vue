@@ -1,7 +1,7 @@
 <template>
   <div v-if="editor">
     <div
-      class="space-x-2 px-3 py-3 flex flex-wrap items-center border border-b-0 rounded-t border-gray-300 dark:border-white"
+      class="space-x-2 px-3 py-3 flex flex-wrap items-center"
       :class="buttonClasses"
     >
       <div

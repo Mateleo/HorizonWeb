@@ -31,6 +31,8 @@ const routes = [
         createdAt: '2021-02-04T13:51:36.631Z',
         updatedAt: '2021-03-04T13:51:36.631Z',
         post: {
+          createdAt: '2021-02-04T13:51:36.631Z',
+          updatedAt: '2021-03-04T13:51:36.631Z',
           upvotes: 69,
           title: 'Les ordinateurs sur la deuxième rangée en salle E103 ne fonctionnent plus !',
           content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nihil reprehenderit esse aperiam odit dignissimos, praesentium quia blanditiis autem atque molestias officiis deleniti magnam libero a? Optio recusandae totam soluta! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit optio, praesentium obcaecati facere quasi',

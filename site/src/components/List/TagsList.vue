@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex">
     <div
       ref="tagList"
       class="flex flex-wrap h-7 overflow-hidden"
@@ -10,21 +10,29 @@
       >
         N/A
       </div>
-      <tag
+      <template
         v-for="(tag,i) in tags"
         v-else
-        :ref="setTagRef"
         :key="i"
-        :name="tag.name ?? tag"
-        :color="'red-500'"
-      />
-    </div>
-    <!-- TODO: Link & tooltip preview -->
-    <div
-      v-if="overflowing.length"
-      class="ml-3 text-blue-500"
-    >
-      + {{ overflowing.length }} tags
+      >
+        <div class="flex">
+          <tag
+            :ref="setTagRef"
+            :name="tag.name ?? tag"
+            :color="'red-500'"
+          />
+          <!-- TODO: Link & tooltip preview
+          <p class="text-0">
+            {{ i }} {{ last }} {{ overflowing.length ? "true" : "false" }} {{ i == last }}
+          </p> -->
+          <div
+            v-if="overflowing.length && i == last"
+            class="text-blue-500 flex-shrink-0"
+          >
+            + {{ overflowing.length }} tags
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -62,11 +70,14 @@ export default {
   data () {
     const overflow = debounce(() => {
       this.overflowing = []
+      this.last = null
       const getTop = el => el?.getBoundingClientRect()?.top ?? 0
       const startHeight = getTop(this.tagList)
       for (var i = 0; i < this.tagRefs.length; i++) {
-        if (startHeight < getTop(this.tagRefs[i].$el)) {
+        if (getTop(this.tagRefs[i].$el) > startHeight) {
           this.overflowing.push(this.tagRefs[i].name)
+        } else {
+          this.last = i
         }
       }
     }, 30)
@@ -75,6 +86,7 @@ export default {
 
     return {
       overflowing: [],
+      last: null,
       tagsList$,
       overflow
     }

@@ -1,6 +1,6 @@
-export function timeAgo (dateInput) {
+export function timeAgo (dateInput, mode) {
   const date = (dateInput instanceof Date) ? dateInput : new Date(dateInput)
-  const formatter = new Intl.RelativeTimeFormat('fr', { style: 'short' })
+  const formatter = new Intl.RelativeTimeFormat('fr', { style: mode ?? 'short' })
   const ranges = {
     years: 3600 * 24 * 365,
     months: 3600 * 24 * 30,

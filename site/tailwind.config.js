@@ -16,7 +16,8 @@ module.exports = {
       'sm-max': { max: '639px' },
       'md-max': { max: '767px' },
       'lg-max': { max: '1023px' },
-      'xl-max': { max: '1279px' }
+      'xl-max': { max: '1279px' },
+      '2xl-max': { max: '1535px' }
     },
     colors: {
       ...colors,
@@ -26,11 +27,11 @@ module.exports = {
       },
       1: {
         light: '#fafafa',
-        dark: '#1d1e20'
+        dark: '#0a0c12'
       },
       2: {
-        light: '#f6f6f6',
-        dark: '#202225'
+        light: '#f3f3f5',
+        dark: '#1a1e28'
       },
       3: {
         light: '#e2e2e2',

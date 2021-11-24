@@ -2,62 +2,48 @@
   <div>
     <div
       v-if="post"
-      class="bg-0 rounded-lg rounded-l-xl"
+      class="text-1 bg-1 rounded-lg rounded-l-xl"
     >
-      <div class="flex gap-3">
-        <div class="text-1 text-center flex flex-col flex-shrink-0 w-14 pt-1 pb-2 bg-5 rounded-l-lg">
-          <i class="ri-add-line text-xl md:text-2xl mouse-icon" />
-          <div class="font-medium">
+      <div class="flex">
+        <div class="text-1 text-center flex flex-col flex-shrink-0 w-20 pt-4 pb-2 rounded-l-lg">
+          <i class="ri-arrow-up-s-fill text-3xl md:text-4xl -mb-2 -mt-1 mouse-icon text-5 cursor-pointer" />
+          <div class="font-bold text-lg">
             {{ abbrNumbers(post.upvotes - post.downvotes) }}
           </div>
-          <i class="ri-subtract-line text-xl md:text-2xl -mt-1 mouse-icon" />
-          <i class="mt-1 ri-bookmark-line mouse-icon text-lg md:text-xl" />
-          <i class="mt-2 ri-star-line text-lg md:text-xl mouse-icon" />
-          <div class="text-sm font-medium">
+          <i class="ri-arrow-down-s-fill text-3xl md:text-4xl -mt-2 mouse-icon text-5 cursor-pointer" />
+          <i class="ri-star-line text-lg md:text-xl mouse-icon mt-2 text-5 cursor-pointer" />
+          <div class="font-bold text-md">
             {{ abbrNumbers(post.favorites) }}
           </div>
         </div>
 
-        <div class="pl-1 pr-4 my-3 mr-2">
-          <span class="font-light text-3 flex flex-wrap space-x-1 items-center h-6 whitespace-nowrap overflow-hidden">
-            <div class="flex space-x-1 pl-1">
-              <i
-                :class="headerTypes[post.type]?.icon"
-                class="text-1"
-              />
-              <div class="text-1 font-bold">
-                {{ headerTypes[post.type]?.type }}
+        <div class="pr-4 my-4 mr-2">
+          <div class="flex space-x-3">
+            <div class="flex-shrink-0 font-light text-3 flex flex-wrap space-x-1 items-center h-6 whitespace-nowrap overflow-hidden">
+              <div class="flex space-x-1 pl-1">
+                <i
+                  :class="headerTypes[post.type]?.icon"
+                  class="text-1"
+                />
+                <div class="text-1 font-bold">
+                  {{ headerTypes[post.type]?.type }}
+                </div>
+              </div>
+              <div class="flex space-x-1 pl-1">
+                <div
+                  :class="[post.solved ? 'text-red-500' : 'text-green-500']"
+                >
+                  {{ post.solved ? 'Non-Résolu' : '✓ Résolu' }}
+                </div>
               </div>
             </div>
-            <div class="flex space-x-1 pl-1">
-              <p class="pr-1">•</p>
-              <div
-                :class="[post.solved ? 'text-red-500' : 'text-green-500']"
-              >
-                {{ post.solved ? 'Non-Résolu' : '✓ Résolu' }}
-              </div>
-            </div>
-            <div class="flex space-x-1 pl-1">
-              <p class="pr-1">•</p>
-              <i class="ri-file-edit-fill" />
-              <div>{{ timeAgo(post.createdAt) }}</div>
-            </div>
-            <div class="flex space-x-1 pl-1">
-              <p class="pr-1">•</p>
-              <i class="ri-history-line" />
-              <div> {{ timeAgo(post.updatedAt) }}</div>
-            </div>
-            <div class="flex space-x-1 pl-1">
-              <p class="pr-1">•</p>
-              <i class="ri-eye-line" />
-              <div>{{ abbrNumbers(post.views) }}</div>
-            </div>
-          </span>
+            <tags-list :tags="post.tags" />
+          </div>
 
-          <div class="mt-1">
+          <div class="mt-3">
             <router-link
               :to="`/post/${post.postId}`"
-              class="text-xl text-0 font-semibold hover:underline line-clamp-1"
+              class="text-2xl text-0 font-semibold hover:underline line-clamp-1"
             >
               {{ post.title }}
             </router-link>
@@ -69,6 +55,7 @@
 
           <div class="relative">
             <div class="flex items-start space-x-2 h-12 mt-4 space-y-2 mr-4">
+              <!-- TODO: User popup -->
               <a
                 href="#"
                 class="flex flex-shrink-0 items-center"
@@ -86,10 +73,15 @@
                   <div class="text-sm text-2">{{ abbrNumbers(post.author?.reputation) }}</div>
                 </div>
               </a>
-              <div class="flex-shrink-0 font-medium text-1 pl-2">
-                Tags :
-              </div>
-              <tags-list :tags="post.tags" />
+
+              <span class="pl-4 font-light text-5 flex flex-wrap space-x-4 items-center h-6 whitespace-nowrap overflow-hidden">
+                <div>Posté {{ timeAgo(post.createdAt) }}</div>
+                <div class="flex space-x-1 pl-1">
+                  <i class="ri-history-line" />
+                  <div>{{ timeAgo(post.updatedAt) }}</div>
+                </div>
+                <div>{{ abbrNumbers(post.views) }} Réponses</div>
+              </span>
             </div>
           </div>
         </div>

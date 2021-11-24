@@ -1,5 +1,5 @@
 <template>
-  <div class="flex border-t-1">
+  <div class="flex">
     <div
       class="
       text-1 text-sm
@@ -13,8 +13,8 @@
             &nbsp;- {{ comment.author }}<nobr />
           </nobr>
           <span class="pl-2">
-            <i class="ri-heart-line" />
             <!-- TODO: Actions -->
+            <i class="ri-heart-line" />
           </span>
         </div>
       </div>

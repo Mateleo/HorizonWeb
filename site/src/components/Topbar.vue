@@ -11,6 +11,7 @@
       >
         <i class="ri-menu-line text-2xl" />
       </button>
+      <div class="hidden 2xl:block brand w-32 h-6 ml-4" />
     </div>
 
     <div class="w-full h-full flex items-center">
@@ -116,10 +117,10 @@ export default {
 @import "~@/assets/scss/abstracts/mixins/get-color";
 
 .topbar-shadow {
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  clip-path: inset(0px 0px -15px 0px);
+  box-shadow: 0 0 15px 3px rgba(0,0,0,0.05);
+  clip-path: inset(0px 0px -30px 0px);
   :root.dark & {
-    box-shadow: 0 0 10px rgba(0,0,0,0.75);
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.4);
   }
 }
 

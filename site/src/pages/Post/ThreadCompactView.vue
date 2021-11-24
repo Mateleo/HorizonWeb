@@ -5,21 +5,8 @@
         {{ thread.post.title }}
       </div>
       <div
-        class="flex flex-row gap-4 text-1 rounded-md px-4 py-2 flex-shrink-0"
+        class="flex space-x-4 text-1 rounded-md px-4 py-2 flex-shrink-0"
       >
-        <div class="flex space-x-2">
-          <i class="ri-file-edit-fill" />
-          <p>{{ timeAgo(thread.createdAt, "long") }}</p>
-        </div>
-        <div class="flex space-x-2">
-          <i class="ri-history-line" />
-          <p>{{ timeAgo(thread.updatedAt, "long") }}</p>
-        </div>
-        <div class="flex space-x-2">
-          <i class="ri-eye-line" />
-          <p>{{ thread.views }} vues</p>
-        </div>
-
         <!-- TODO: Talk tab -->
         <div class="border-b-2 border-blue-500">
           Post
@@ -27,12 +14,16 @@
         <div class="border-b-2 border-transparent hover:border-blue-300">
           Talk
         </div>
+
+        <div class="flex space-x-2">
+          <i class="ri-eye-line" />
+          <p>{{ thread.views }} vues</p>
+        </div>
       </div>
-      <hr class="mt-2 mb-4">
     </div>
 
-    <div class="flex">
-      <div class="md:w-9/12">
+    <div class="flex mt-4">
+      <div class="card">
         <div>
           <Post :post="thread.post" />
         </div>
@@ -51,8 +42,8 @@
         </div>
       </div>
 
-      <div class="w-3/12 ml-4 text-1 sticky top-0 space-y-2 hidden md:block">
-        <div class="border rounded-lg px-4 py-2">
+      <div class="w-3/12 ml-4 text-1 sticky top-0 space-y-2 hidden lg:block">
+        <div class="card">
           <div class="flex mb-2 space-x-2 text-xl items-center">
             <div class="font-bold text-md mr-4">
               Tags
@@ -71,7 +62,7 @@
             />
           </div>
         </div>
-        <div class="border rounded-lg px-4 py-2">
+        <div class="card">
           <div class="flex mb-2 space-x-2 text-xl items-center">
             <div class="font-bold text-md mr-4">
               Contributeurs
@@ -87,7 +78,7 @@
             class="inline-block"
           />
         </div>
-        <div class="border rounded-lg px-4 py-2">
+        <div class="card">
           <div class="flex mb-3 space-x-2 text-xl items-center">
             <div class="font-bold text-md mr-4">
               Sujets semblables
@@ -107,9 +98,6 @@
       </div>
     </div>
   </div>
-  <button onclick="console.log(this.thread_post)">
-    click
-  </button>
 </template>
 
 <script lang="js">

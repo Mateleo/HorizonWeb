@@ -2,14 +2,8 @@
   <div>
     <div
       class="absolute py-12 hero h-52 w-full top-0 left-0"
-    >
-      <h3
-        class="text-4xl font-bold mb-8 text-0 px-10"
-      >
-        Créer un Post
-      </h3>
-    </div>
-    <div class="relative mt-32 mb-10 flex mx-auto w-11/12">
+    />
+    <div class="relative mt-10 mb-10 flex mx-auto w-11/12">
       <form
         class="bg-1 flex flex-col space-y-4 card min-w-2/3"
         action="javascript:void(0);"

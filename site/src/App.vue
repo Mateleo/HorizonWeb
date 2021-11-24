@@ -50,7 +50,7 @@ import { ref, watch } from 'vue'
 
 import Topbar from '@/components/Topbar.vue'
 import Sidebar from '@/components/Sidebar.vue'
-const breakWidth = 1024
+const breakWidth = 768
 export default {
   components: {
     Topbar,
@@ -171,6 +171,7 @@ export default {
 @import "~@/assets/scss/components/tiptap";
 @import "~@/assets/scss/components/link";
 @import "~@/assets/scss/sections/hero";
+@import "~@/assets/scss/sections/titles";
 @import "~@/assets/scss/core/spacing";
 @import "~@/assets/scss/core/tab";
 @import "~@/assets/scss/core/scrollbar";
@@ -189,14 +190,13 @@ export default {
 
 * {
   font-family: AtkinsonHyperlegible;
-  transition: color 300ms, box-shadow 300ms, background-color 300ms linear, border-color 300ms, border-radius 300ms, fill 300ms, stroke 300ms, filter 200ms;
 }
 
 html {
   font-size: 14px;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 768px) {
   html {
     font-size: 16px;
   }

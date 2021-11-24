@@ -6,18 +6,22 @@ $sidebar-width-lg: 14rem;
   width: $sidebar-width;
 }
 
+.hidden-sidebar {
+  margin-left: calc(-1 * $sidebar-width);
+}
+
 @media (min-width: 1536px) {
   .w-sidebar {
     width: $sidebar-width-lg;
+  }
+
+  .hidden-sidebar {
+    margin-left: calc(-1 * $sidebar-width-lg);
   }
 }
 
 .h-topbar {
   height: $topbar-height;
-}
-
-.hidden-sidebar {
-  margin-left: calc(-1 * $sidebar-width);
 }
 
 .after-sidebar {
