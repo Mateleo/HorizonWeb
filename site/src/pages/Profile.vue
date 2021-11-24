@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto pb-6 text-1">
-    <div class="relative h-32 w-full">
+    <div class="relative h-52 w-full">
       <div class="banner w-full h-full rounded-b" />
       <!-- <div class="flex absolute top-0 bg-gray-500 opacity-50 rounded items-center justify-center w-full h-full">
         Changer votre banniere
@@ -57,132 +57,32 @@
         </div>
       </div>
       <div class="flex-col mx-8 flex-grow space-y-4">
-        <div class="w-full border rounded p-6 flex">
-          <div class="flex flex-col items-center w-1/12 mr-4">
-            <i class="ri-arrow-up-s-line ri-xl" />
-            <div class="text-green-500">
-              48
-            </div>
-            <i class="ri-arrow-down-s-line ri-xl" />
-            <i class="ri-star-line ri-md mt-3" />
-            <i class="ri-bookmark-line ri-md mt-3" />
-            <i class="ri-delete-bin-line mt-2" />
-          </div>
-          <div class="flex flex-col pl-4 border-l-2">
-            <div class="text-2xl">
-              Probleme
-            </div>
-            <div class="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ipsum augue, sodales eget porttitor non, volutpat ultricies augue. Nulla volutpat dolor quis odio euismod, vitae sollicitudin augue dignissim....
-            </div>
-          </div>
-        </div>
-        <div class="w-full border rounded p-6 flex">
-          <div class="flex flex-col items-center w-1/12 mr-4">
-            <i class="ri-arrow-up-s-line ri-xl" />
-            <div class="text-red-500">
-              3
-            </div>
-            <i class="ri-arrow-down-s-line ri-xl" />
-            <i class="ri-star-line ri-md mt-2" />
-            <i class="ri-bookmark-line ri-md mt-2" />
-            <i class="ri-delete-bin-line mt-2" />
-          </div>
-          <div class="flex flex-col pl-4 border-l-2">
-            <div class="text-2xl">
-              Probleme
-            </div>
-            <div class="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ipsum augue, sodales eget porttitor non, volutpat ultricies augue. Nulla volutpat dolor quis odio euismod, vitae sollicitudin augue dignissim....
-            </div>
-            <div class="flex space-x-4">
-              <i class="ri-arrow-go-forward-line" />
-              <div class="text-gray-500">
-                Ca c'est la response
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-full border rounded p-6 flex">
-          <div class="flex flex-col items-center w-1/12 mr-4">
-            <i class="ri-arrow-up-s-line ri-xl" />
-            <div class="text-green-500">
-              212
-            </div>
-            <i class="ri-arrow-down-s-line ri-xl" />
-            <i class="ri-star-line ri-md mt-3" />
-            <i class="ri-bookmark-line ri-md mt-3" />
-            <i class="ri-delete-bin-line mt-2" />
-          </div>
-          <div class="flex flex-col pl-4 border-l-2">
-            <div class="text-2xl">
-              Probleme
-            </div>
-            <div class="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ipsum augue, sodales eget porttitor non, volutpat ultricies augue. Nulla volutpat dolor quis odio euismod, vitae sollicitudin augue dignissim....
-            </div>
-          </div>
-        </div>
-        <div class="w-full border rounded p-6 flex">
-          <div class="flex flex-col items-center w-1/12 mr-4">
-            <i class="ri-arrow-up-s-line ri-xl" />
-            <div class="text-green-500">
-              8
-            </div>
-            <i class="ri-arrow-down-s-line ri-xl" />
-            <i class="ri-star-line ri-md mt-3" />
-            <i class="ri-bookmark-line ri-md mt-3" />
-            <i class="ri-delete-bin-line mt-2" />
-          </div>
-          <div class="flex flex-col pl-4 border-l-2">
-            <div class="text-2xl">
-              Probleme
-            </div>
-            <div class="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ipsum augue, sodales eget porttitor non, volutpat ultricies augue. Nulla volutpat dolor quis odio euismod, vitae sollicitudin augue dignissim....
-            </div>
-            <div class="flex space-x-4">
-              <i class="ri-arrow-go-forward-line" />
-              <div class="text-gray-500">
-                Ca c'est la response
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-full border rounded p-6 flex">
-          <div class="flex flex-col items-center w-1/12 mr-4">
-            <i class="ri-arrow-up-s-line ri-xl" />
-            <div class="text-red-500">
-              29
-            </div>
-            <i class="ri-arrow-down-s-line ri-xl" />
-            <i class="ri-star-line ri-md mt-3" />
-            <i class="ri-bookmark-line ri-md mt-3" />
-            <i class="ri-delete-bin-line mt-2" />
-          </div>
-          <div class="flex flex-col pl-4 border-l-2">
-            <div class="text-2xl">
-              Probleme
-            </div>
-            <div class="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ipsum augue, sodales eget porttitor non, volutpat ultricies augue. Nulla volutpat dolor quis odio euismod, vitae sollicitudin augue dignissim....
-            </div>
-            <div class="flex space-x-4">
-              <i class="ri-arrow-go-forward-line" />
-              <div class="text-gray-500">
-                Ca c'est la response
-              </div>
-            </div>
-          </div>
-        </div>
+        <post-card-vue
+          v-for="activitie in activities"
+          :key="activitie.index"
+          :post="activitie"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import PostCardVue from '../components/Card/PostCard.vue'
 export default {
-
+  components: {
+    PostCardVue
+  },
+  data () {
+    return {
+      activities: [
+        { postId: 101, type: 3, locked: false, opened: false, solved: false, tags: [{ name: 'émargement' }, { name: 'présence' }, { name: 'promo:l2' }, { name: 'cours' }, { name: 'importance:moyenne' }, { name: 'fréquence:régulier' }], body: '{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Problème observé: les étudiants sont parfois notés absents à des cours auxquels ils sont présents (particulièrement en ligne)"}]},{"type":"paragraph","content":[{"type":"text","text":"Solution potentielle: mettre en place un système d’émargement électronique officiel"}]}]}', title: 'Problème avec le système d\'émargement en L2', author: { username: 'Sophie H.', avatar: require('@/assets/img/landing/girl_1.jpg'), reputation: 50200 }, favorites: 33, upvotes: 243, views: 44653, downvotes: 3, createdAt: '2021-10-18T13:51:36.631Z', updatedAt: '2021-10-18T13:51:36.631Z' },
+        { postId: 2201, type: 2, locked: false, opened: true, solved: true, tags: [{ name: 'terrasse' }, { name: 'promo:toutes' }, { name: 'matériel' }, { name: 'importance:moyenne' }, { name: 'difficulté:facile' }], body: '{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Les poufs sur la terrasse au dessus du fab lab sont laissés en extérieur la nuit ce qui les salit quand il pleut."}]},{"type":"paragraph","content":[{"type":"text","text":"Peut-être que les étudiants pourraient être autorisés et encourager à les ranger dans le hall du Bât. C ou dans le Bât. A les soirs de pluie ?"}]}]}', title: 'Rangement des poufs sur la terrasse du Bât. I', author: { username: 'Jean R.', avatar: require('@/assets/img/landing/guy_1.jpg'), reputation: 2021 }, favorites: 104, upvotes: 1255, views: 27553, downvotes: 3, createdAt: '2021-10-15T13:51:36.631Z', updatedAt: '2021-10-17T13:51:36.631Z' },
+        { postId: 3032, type: 1, locked: true, opened: false, solved: true, tags: [{ name: 'pave' }, { name: 'déclaration pave' }, { name: 'promo:toutes' }, { name: 'urgence:haute' }], body: '{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"J\'ai entendu dire qu\'il y\'avait besoin de remplir une déclaration de PAVE pour avoir ses points pour un semestre donné, mais je ne la connais pas."}]},{"type":"paragraph","content":[{"type":"text","text":"Est-ce quelqu\'un pourrait me montrer comment faire, étape par étape ?"}]}]}', title: 'Comment déclarer sa PAVE ?', author: { username: 'Emma L.', avatar: require('@/assets/img/landing/girl_2.jpg'), reputation: 1234 }, favorites: 95, upvotes: 1004, views: 16993, downvotes: 3, createdAt: '2021-10-01T13:51:36.631Z', updatedAt: '2021-10-08T13:51:36.631Z' },
+        { postId: 11093, type: 4, locked: false, opened: true, solved: false, tags: [{ name: 'stage' }, { name: 'sopra steria' }, { name: 'promo:m1' }, { name: 'expérience' }], body: '{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Bonjour à tous ! J\'ai reçu une proposition de stage chez Sopra, mais j\'hésite encore à l\'accepter"}]},{"type":"paragraph","content":[{"type":"text","text":"Pour ceux qui ont déjà fait un stage chez eux, comment fut votre expérience là-bas ? Avez-vous des conseils ?"}]}]}', title: 'Retour d\'expérience Sopra Steria', author: { username: 'Stéphane M.', avatar: require('@/assets/img/landing/guy_2.jpg'), reputation: 234 }, favorites: 12, upvotes: 430, views: 4683, downvotes: 3, createdAt: '2021-02-04T13:51:36.631Z', updatedAt: '2021-03-04T13:51:36.631Z' }
+      ]
+    }
+  }
 }
 </script>
 
