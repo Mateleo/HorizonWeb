@@ -168,10 +168,11 @@ export default {
 @import "~@/assets/scss/components/button";
 @import "~@/assets/scss/components/card";
 @import "~@/assets/scss/components/input";
+@import "~@/assets/scss/components/select";
 @import "~@/assets/scss/components/tiptap";
 @import "~@/assets/scss/components/link";
 @import "~@/assets/scss/sections/hero";
-@import "~@/assets/scss/sections/titles";
+@import "~@/assets/scss/sections/label";
 @import "~@/assets/scss/core/spacing";
 @import "~@/assets/scss/core/tab";
 @import "~@/assets/scss/core/scrollbar";

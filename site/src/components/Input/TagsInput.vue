@@ -27,7 +27,7 @@
       @focus="focused = true"
       @keydown="$emit('inputUpdate', $event)"
       @keydown.enter.prevent="addTag(newTag)"
-      @keydown.space="addTag(newTag)"
+      @keydown.space.prevent="addTag(newTag)"
       @keydown.delete="newTag.length || removeTag(tags.length - 1)"
     >
   </div>

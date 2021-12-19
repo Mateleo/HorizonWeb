@@ -39,8 +39,3 @@
         @apply tracking-widest;
     }
 }
-
-select:invalid {
-    @extend %text-placeholder;
-    opacity: 1;
-}

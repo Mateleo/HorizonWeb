@@ -10,16 +10,8 @@
       'after-topbar': !uncollapsed,
       'h-content': !uncollapsed,
     }"
-    class="
-      overflow-hidden
-      flex flex-col flex-shrink-0
-      w-sidebar
-      bg-1
-      border-r border-bar
-      whitespace-nowrap
-      z-50
-      transition-spacing
-    "
+    class="overflow-hidden flex flex-col flex-shrink-0 w-sidebar bg-1
+    border-r border-bar whitespace-nowrap transition-spacing z-50"
   >
     <div
       v-if="uncollapsed"
@@ -36,13 +28,13 @@
 
     <div class="overflow-y-auto overflow-x-hidden app-scrollbar-on-hover">
       <div class="divide-y">
-        <div class="divide-y xl:divide-y-0">
+        <div class="divide-y 2xl:divide-y-0">
           <ul
             v-for="[sectionName, sectionLinks] in Object.entries(links)"
             :key="sectionName"
             class="p-2"
           >
-            <p class="hidden xl:block text-5 uppercase py-2 pl-4">
+            <p class="hidden 2xl:block text-5 uppercase py-2 pl-4">
               {{ sectionName }}
             </p>
             <template
@@ -71,7 +63,7 @@
                   <div
                     class="
                       flex flex-col
-                      xl:flex-row xl:space-x-4 xl:ml-5
+                      2xl:flex-row 2xl:space-x-4 2xl:ml-5
                       items-center
                       w-full
                       mb-1
@@ -106,7 +98,6 @@
 
 <script lang="js">
 import SwitchInput from '@/components/Input/SwitchInput.vue'
-
 export default {
   components: { SwitchInput },
   props: {
@@ -153,7 +144,6 @@ export default {
     theme () {
       return this.$store.state.userConfig.theme === 'dark'
     },
-
     loggedIn () {
       return this.$store.state.auth.status.loggedIn
     }

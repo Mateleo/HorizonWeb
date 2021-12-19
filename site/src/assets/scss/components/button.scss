@@ -8,7 +8,7 @@
 
 .button {
   @extend %button-shadow;
-  @apply px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-500 border-blue-800;
+  @apply px-4 py-2 rounded-md text-lg font-medium text-white bg-blue-500 border-blue-800 cursor-pointer;
 
   &:focus,
   &[focused] {

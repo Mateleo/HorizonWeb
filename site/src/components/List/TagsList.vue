@@ -20,10 +20,7 @@
             :ref="setTagRef"
             :name="tag.name ?? tag"
           />
-          <!-- TODO: Link & tooltip preview
-          <p class="text-0">
-            {{ i }} {{ last }} {{ overflowing.length ? "true" : "false" }} {{ i == last }}
-          </p> -->
+          <!-- TODO: Link & tooltip preview -->
           <div
             v-if="overflowing.length && i == last"
             class="text-blue-500 flex-shrink-0"
@@ -35,12 +32,10 @@
     </div>
   </div>
 </template>
-
 <script lang="js">
 import debounce from 'lodash/debounce'
 import { onBeforeUpdate, reactive, ref } from 'vue'
 import Tag from '@/components/Tag.vue'
-
 export default {
   components: {
     Tag
@@ -59,11 +54,9 @@ export default {
         tagRefs.push(el)
       }
     }
-
     onBeforeUpdate(() => {
       tagRefs = []
     })
-
     return { tagRefs, tagList, setTagRef }
   },
   data () {
@@ -80,9 +73,7 @@ export default {
         }
       }
     }, 30)
-
     const tagsList$ = new ResizeObserver(overflow)
-
     return {
       overflowing: [],
       last: null,
