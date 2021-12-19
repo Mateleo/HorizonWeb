@@ -1,8 +1,6 @@
 <template>
   <div class="m-0">
-    <div
-      class="py-12 px-10 hero"
-    >
+    <div class="py-12 px-10 hero">
       <div class="px-6">
         <h2 class="text-2xl mb-2 text-2">
           Horizon Web 🌐
@@ -12,7 +10,15 @@
         </h3>
         <router-link to="/new-post">
           <button
-            class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase"
+            class="
+              bg-white
+              font-bold
+              rounded-full
+              py-4
+              px-8
+              shadow-lg
+              uppercase
+            "
           >
             Créer un post
           </button>
@@ -22,7 +28,16 @@
 
     <!-- Features -->
     <section class="mx-auto px-8 py-10">
-      <h2 class="text-4xl font-bold text-center text-1 mb-12 uppercase tracking-wider">
+      <h2
+        class="
+          text-4xl
+          font-bold
+          text-center text-1
+          mb-12
+          uppercase
+          tracking-wider
+        "
+      >
         Fonctionnalités
       </h2>
       <div class="flex items-center flex-wrap mb-20">
@@ -31,8 +46,11 @@
             Posts Publics
           </h4>
           <p class="text-2 mb-8">
-            Un post est une <u>question</u>, une <u>remontée de problème</u>, une <u>suggestion d'amélioration</u> ou une <u>opinion</u>.
-            Quiconque peut participer aux fils de discussion des posts, les <u>upvoter/downvoter</u> ou <u>rechercher d'anciens posts archivés</u>.
+            Un post est une <u>question</u>, une <u>remontée de problème</u>,
+            une <u>suggestion d'amélioration</u> ou une <u>opinion</u>.
+            Quiconque peut participer aux fils de discussion des posts, les
+            <u>upvoter/downvoter</u> ou
+            <u>rechercher d'anciens posts archivés</u>.
           </p>
         </div>
         <div class="w-full md:w-1/2">
@@ -40,11 +58,11 @@
             :space-between="30"
             :centered-slides="true"
             :autoplay="{
-              'delay': 6000,
-              'disableOnInteraction': false
+              delay: 6000,
+              disableOnInteraction: false,
             }"
             :pagination="{
-              'clickable': true
+              clickable: true,
             }"
             :navigation="true"
           >
@@ -71,73 +89,50 @@
           >
         </div>
         <div class="w-full md:w-1/2">
-          <h4 class="text-3xl text-1 font-medium  mb-3">
+          <h4 class="text-3xl text-1 font-medium mb-3">
             Fils de discussion détaillés
           </h4>
           <p class="text-2 mb-8">
-            Chaque Post public a un <u>fil de discussion</u> associé dans lequel <u>quiconque peut contribuer</u>; chaque action sur le Post est enregistrée dans <u>l'historique du Post</u>, et visible dans sa <u>vue "Historique"</u>
+            Chaque Post public a un <u>fil de discussion</u> associé dans lequel
+            <u>quiconque peut contribuer</u>; chaque action sur le Post est
+            enregistrée dans <u>l'historique du Post</u>, et visible dans sa
+            <u>vue "Historique"</u>
           </p>
         </div>
       </div>
 
       <div class="flex items-center flex-wrap">
         <div class="w-full md:w-1/2 pr-6">
-          <h4 class="text-3xl text-1 font-medium  mb-3">
+          <h4 class="text-3xl text-1 font-medium mb-3">
             Recherche avancée &amp; Filtrage des Posts
           </h4>
           <p class="text-2 mb-8">
-            <u>Une barre de recherche</u> disponible sur toutes les pages permet de chercher du contenu parmi <u>toutes les ressources</u> de la plateforme
-            <br><br>
-            Pour chaque <u>type de ressource</u>, des <u>filtres sur les tags, les dates de publication et l'état des ressources</u> permettent de simplifier et préciser les recherches
+            <u>Une barre de recherche</u> disponible sur toutes les pages permet
+            de chercher du contenu parmi <u>toutes les ressources</u> de la
+            plateforme <br><br>
+            Pour chaque <u>type de ressource</u>, des
+            <u>filtres sur les tags, les dates de publication et l'état des
+              ressources</u>
+            permettent de simplifier et préciser les recherches
           </p>
         </div>
         <div>
           <div class="flex flex-row mb-2 space-x-2">
             <div class="relative">
-              <select
-                class="
-                    rounded-l
-                    input
-                    input-border
-                    bg-2
-                    py-2
-                    px-4
-                    pr-8
-                  "
-              >
+              <select class="rounded-l input input-border bg-2 py-2 px-4 pr-8">
                 <option>5</option>
                 <option>10</option>
                 <option>20</option>
               </select>
             </div>
             <div class="relative">
-              <select
-                class="
-                    rounded-l
-                    input
-                    input-border
-                    bg-2
-                    py-2
-                    px-4
-                    pr-8
-                  "
-              >
+              <select class="rounded-l input input-border bg-2 py-2 px-4 pr-8">
                 <option>Non-Résolu</option>
                 <option>Résolu</option>
               </select>
             </div>
             <div class="relative">
-              <select
-                class="
-                    rounded-l
-                    input
-                    input-border
-                    bg-2
-                    py-2
-                    px-4
-                    pr-8
-                  "
-              >
+              <select class="rounded-l input input-border bg-2 py-2 px-4 pr-8">
                 <option>Depuis toujours</option>
                 <option>Aujourd'hui</option>
                 <option>Cette semaine</option>
@@ -145,33 +140,13 @@
               </select>
             </div>
             <div class="relative">
-              <select
-                class="
-                    rounded-l
-                    input
-                    input-border
-                    bg-2
-                    py-2
-                    px-4
-                    pr-8
-                  "
-              >
+              <select class="rounded-l input input-border bg-2 py-2 px-4 pr-8">
                 <option>Actif</option>
                 <option>Très actif</option>
               </select>
             </div>
             <div class="relative">
-              <select
-                class="
-                    rounded-l
-                    input
-                    input-border
-                    bg-2
-                    py-2
-                    px-4
-                    pr-8
-                  "
-              >
+              <select class="rounded-l input input-border bg-2 py-2 px-4 pr-8">
                 <option>> 500 vues</option>
                 <option>> 200 vues</option>
                 <option>> 1000 vues</option>
@@ -181,30 +156,21 @@
           <div class="block relative mb-2">
             <span
               class="
-                  h-full
-                  absolute
-                  inset-y-0
-                  left-0
-                  flex
-                  items-center
-                  pl-3
-                  text-1
-                "
+                h-full
+                absolute
+                inset-y-0
+                left-0
+                flex
+                items-center
+                pl-3
+                text-1
+              "
             >
               <i class="ri-search-line" />
             </span>
             <input
               placeholder="Rechercher..."
-              class="
-                  w-full
-                  input
-                  input-border
-                  bg-2
-                  rounded
-                  pl-8
-                  pr-6
-                  py-2
-                "
+              class="w-full input input-border bg-2 rounded pl-8 pr-6 py-2"
             >
           </div>
           <div class="w-full">
@@ -253,9 +219,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-@import "~@/assets/scss/components/swiper.scss";
-
-</style>

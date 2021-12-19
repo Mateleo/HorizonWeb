@@ -110,11 +110,11 @@ const routes = [
         tags: [
           {
             title: 'TagExample',
-            color: 'blue-500'
+            color: '#add8e6'
           },
           {
             title: 'OneTag',
-            color: 'red-500'
+            color: '#ef4444'
           },
           {
             title: 'Tags',
@@ -131,15 +131,15 @@ const routes = [
             tags: [
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               },
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               },
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               }
             ]
           },
@@ -148,15 +148,15 @@ const routes = [
             tags: [
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               },
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               },
               {
                 title: 'Tag',
-                color: 'red-500'
+                color: '#ef4444'
               }
             ]
           },
@@ -165,15 +165,15 @@ const routes = [
             tags: [
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               },
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               },
               {
                 title: 'Tag',
-                color: 'blue-500'
+                color: '#add8e6'
               }
             ]
           }

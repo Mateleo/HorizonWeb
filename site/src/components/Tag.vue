@@ -6,7 +6,7 @@
       px-2  bg-opacity-80 cursor-pointer hover:bg-opacity-100
       md:space-x-1 md:mr-2 md:px-4
     "
-    :class="`bg-${color}`"
+    :style="{backgroundColor: color}"
   >
     <span class="text-sm pb-1 md:text-base">
       {{ name }}
@@ -24,7 +24,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'red-500'
+      default: '#ef4444'
     }
   }
 }

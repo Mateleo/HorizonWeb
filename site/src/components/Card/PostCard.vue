@@ -48,7 +48,7 @@
               {{ post.title }}
             </router-link>
 
-            <p class="mt-1 text-2 text-justify line-clamp-2">
+            <p class="mt-1 text-3 text-justify line-clamp-2">
               {{ postPreview(JSON.parse(post.body) || '') }}
             </p>
           </div>

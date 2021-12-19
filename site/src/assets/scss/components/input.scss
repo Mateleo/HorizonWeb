@@ -1,47 +1,46 @@
 @import "~@/assets/scss/abstracts/mixins/get-color";
 
 .placeholder,
-%placeholder,
-.text-placeholder {
-  @apply dark:placeholder-primary-light placeholder-primary-dark;
+%placeholder {
+    @apply placeholder-0-light dark:placeholder-0-dark;
+}
+
+.text-placeholder,
+%text-placeholder {
+    @apply text-placeholder-0-light dark:text-placeholder-0-dark;
+}
+
+%input-shadow {
+    box-shadow: inset 0 2px 2px hsl(0deg 0% 0% / 15%), 0 2px 0 hsl(0deg 0% 100% / 40%);
+
+    :root.dark & {
+        box-shadow: inset 0 2px 2px hsl(0deg 0% 0% / 40%), 0 2px 0 hsl(0deg 0% 100% / 15%);
+    }
 }
 
 .input,
 %input {
-  @extend %placeholder;
-  @apply text-gray-900 dark:text-gray-100 py-2 px-3;
-  @include get-color("bg", 0, 1);
+    @extend %input-shadow;
+    @extend %placeholder;
+    @apply text-gray-900 dark:text-gray-100 py-2 px-3;
+    @include get-color("bg", 1);
 
-  box-shadow: inset 0 2px 2px rgb(47 44 44 / 10%), 0 2px 0 hsl(0deg 12% 70% / 15%);
-  line-height: 1.43;
-
-  &-border,
-  %input-border {
+    line-height: 1.43;
     @apply rounded dark:border-opacity-75;
 
-    &-no-shadow {
-      @extend %input-border;
+    &:focus,
+    &[focused],
+    &[active] {
+        @apply outline-none ring-2 ring-blue-400;
     }
-  }
 
-  &-border:focus,
-  &-border[focused],
-  &-border[active] {
-    @apply ring-yellow-300 ring-1;
-
-    outline: 0;
-
-    // box-shadow: 0 1px 8px rgba(247, 190, 68, 0.6);
-  }
-
-  &[type="password"]:not(:placeholder-shown) {
-    @extend %input;
-    @apply tracking-widest;
-  }
+    &[type="password"]:not(:placeholder-shown) {
+        @extend %input;
+        @apply tracking-widest;
+    }
 }
 
 select:invalid {
-  @apply dark:text-placeholder-light text-placeholder-dark;
-
-  opacity: 100%;
+    @extend %text-placeholder;
+    opacity: 1;
 }

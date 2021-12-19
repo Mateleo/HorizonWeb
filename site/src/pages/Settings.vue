@@ -1,20 +1,7 @@
 <template>
   <div class="m-0 text-2">
     <div class="m-0 absolute py-12 hero h-52 w-full top-0 left-0" />
-    <div
-      class="
-        height
-        relative
-        mt-10
-        mb-10
-        card
-        p-0
-        bg-1
-        w-11/12
-        mx-auto
-        flex
-      "
-    >
+    <div class="height relative mt-10 mb-10 card p-0 bg-1 w-11/12 mx-auto flex">
       <div class="mt-2 flex-shrink-0">
         <ul class="py-2">
           <template
@@ -31,9 +18,7 @@
                 w-full
                 space-x-2
                 items-center
-                transition-colors
                 bg-mouse-brand
-                duration-300
                 cursor-pointer
               "
               :class="{ active: currentComponent === link.component }"
@@ -83,9 +68,7 @@ export default {
 </script>
 
 <style lang="scss">
-
 .height {
   min-height: 24rem;
 }
-
 </style>

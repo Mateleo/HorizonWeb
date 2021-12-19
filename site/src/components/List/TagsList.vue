@@ -19,7 +19,6 @@
           <tag
             :ref="setTagRef"
             :name="tag.name ?? tag"
-            :color="'red-500'"
           />
           <!-- TODO: Link & tooltip preview
           <p class="text-0">

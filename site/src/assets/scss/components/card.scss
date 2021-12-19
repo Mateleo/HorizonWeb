@@ -1,7 +1,7 @@
 @import "~@/assets/scss/abstracts/mixins/get-color";
 
 .card {
-  @include get-color("text", 0); // Text color
-  @include get-color("bg", 1, 1); // Text color
-  @apply shadow-md rounded-lg py-4 px-6;
+    @include get-color("text", 0);
+    @include get-color("bg", 0);
+    @apply shadow-md rounded-lg py-4 px-6;
 }

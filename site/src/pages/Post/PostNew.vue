@@ -19,7 +19,7 @@
           </div>
           <input
             v-model="titleValue"
-            class="w-full input input-border bg-1"
+            class="w-full input bg-1"
             type="text"
             name="title"
             placeholder="Titre descriptif/complet"
@@ -45,7 +45,7 @@
           <select
             v-model="typeValue"
             name="type"
-            class="input input-border bg-1 pr-4"
+            class="input bg-1 pr-4"
             required
           >
             <option

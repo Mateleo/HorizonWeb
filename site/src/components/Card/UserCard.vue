@@ -10,7 +10,7 @@
       </div>
       <span
         class="w-1/3 h-1/3 absolute bottom-0 right-0 rounded-full border border-color-alt-2"
-        :class="`bg-${status}`"
+        :style="{backgroundColor: status}"
       />
     </div>
     <div class="flex flex-col min-w-0">
@@ -52,7 +52,7 @@ export default {
     },
     status: {
       type: String,
-      default: 'red-500'
+      default: '#ef4444'
     }
   },
   methods: {

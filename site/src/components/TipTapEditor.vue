@@ -1,13 +1,19 @@
 <template>
   <div v-if="editor">
     <div
-      class="space-x-2 px-3 py-3 flex flex-wrap items-center"
+      class="space-x-2 px-3 py-3 flex flex-wrap items-center border-color-4"
       :class="buttonClasses"
     >
       <div
         v-for="btn in buttons"
         :key="btn"
-        :class="actionMap[btn.action].isActive ? { 'is-active': editor.isActive(...actionMap[btn.action].isActive) } : {}"
+        :class="
+          actionMap[btn.action].isActive
+            ? {
+              'is-active': editor.isActive(...actionMap[btn.action].isActive),
+            }
+            : {}
+        "
         class="flex items-center text-1 icon-button"
         @click="actionMap[btn.action].action()"
       >
@@ -23,7 +29,11 @@
     <div
       v-if="charCount"
       class="mt-1"
-      :class="{'character-count': charCount, 'character-count--warning': editor.getCharacterCount() === charCountLimit}"
+      :class="{
+        'character-count': charCount,
+        'character-count--warning':
+          editor.getCharacterCount() === charCountLimit,
+      }"
     >
       <svg
         height="20"
@@ -238,15 +248,14 @@ export default {
 </script>
 
 <style lang="scss">
-
 .character-count {
   margin-top: 1rem;
   display: flex;
   align-items: center;
-  color: #68CEF8;
+  color: #68cef8;
 
   &--warning {
-    color: #FB5151;
+    color: #fb5151;
   }
 
   &__graph {

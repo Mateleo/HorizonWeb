@@ -1,5 +1,5 @@
 $topbar-height: 4.5rem;
-$sidebar-width: 8rem;
+$sidebar-width: 9rem;
 $sidebar-width-lg: 14rem;
 
 .w-sidebar {
@@ -10,7 +10,7 @@ $sidebar-width-lg: 14rem;
   margin-left: calc(-1 * $sidebar-width);
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1280px) {
   .w-sidebar {
     width: $sidebar-width-lg;
   }

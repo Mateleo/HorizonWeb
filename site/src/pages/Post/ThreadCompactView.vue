@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:w-21/24 mx-auto py-6">
+  <div class="w-full lg:w-21/24 px-4 py-6">
     <div class="text-1">
       <div class="px-4 pt-4 text-3xl font-bold mb-2">
         {{ thread.post.title }}
