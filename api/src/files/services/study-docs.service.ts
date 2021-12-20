@@ -81,7 +81,7 @@ export class StudyDocsService {
       title: studyDoc.name,
       author: studyDoc.file.author,
       // Content: ,
-      courseCode: studyDoc.docSeries?.docSeriesId,
+      courseCode: studyDoc.subject,
       year: studyDoc.year,
       description: studyDoc.description,
       tags: studyDoc.tags,
