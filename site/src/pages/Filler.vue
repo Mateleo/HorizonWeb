@@ -2,6 +2,7 @@
   <ais-instant-search
     :search-client="searchClient"
     index-name="studyDoc"
+    class="text-0"
   >
     <ais-search-box />
     <ais-hits>
@@ -28,13 +29,13 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
       }
     ],
     cacheSearchResultsForSeconds: 2 * 60 // Cache search results from server. Defaults to 2 minutes. Set to 0 to disable caching.
-  },
+  }
   // The following parameters are directly passed to Typesense's search API endpoint.
   //  So you can pass any parameters supported by the search endpoint below.
   //  queryBy is required.
-  additionalSearchParameters: {
-    queryBy: 'title,author,content,courseCode,year,description'
-  }
+  // additionalSearchParameters: {
+  // queryBy: 'title,author,content,courseCode,year,description'
+  // }
 })
 const searchClient = typesenseInstantsearchAdapter.searchClient
 
