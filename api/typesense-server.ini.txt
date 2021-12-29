@@ -1,0 +1,6 @@
+api-address = 0.0.0.0
+api-port = 8108
+data-dir = /var/lib/typesense
+api-key = 2YQIisgfRgm8PV1IVyFZSyOwGMxrk7MU5DgEJICGfql30EPd
+log-dir = /var/log/typesense
+enable-cors = true
