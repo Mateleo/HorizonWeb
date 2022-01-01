@@ -2,6 +2,7 @@ import type { AbilityClass, ExtractSubjectType, InferSubjects } from '@casl/abil
 import { Ability, AbilityBuilder, ForbiddenError } from '@casl/ability';
 import { Injectable } from '@nestjs/common';
 import { Article } from '../../../articles/entities/article.entity';
+import type { Badge } from '../../../badges/badge.entity';
 import { Comment } from '../../../comments/entities/comment.entity';
 import { Post } from '../../../posts/entities/post.entity';
 import { Reply } from '../../../replies/entities/reply.entity';
@@ -13,6 +14,7 @@ import { Role } from '../authorization/types/role.enum';
 
 export type Subjects = InferSubjects<
   | typeof Article
+  | typeof Badge
   | typeof Comment
   | typeof Post
   | typeof Reply
