@@ -1,20 +1,21 @@
 import { Transform } from 'class-transformer';
 import {
- IsNotEmpty, IsOptional, IsString, Length, Matches,
+ IsEmail, IsOptional, IsString, Matches,
 } from 'class-validator';
 import { OPAQUE_HEX_COLOR_REGEX } from '../../shared/lib/constants';
 
-export class CreateTagDto {
-	@Length(1, 50)
+export class UpdateUserDto {
+	@IsOptional()
 	@IsString()
-	name: string;
-
-	@IsNotEmpty()
-	@Matches(OPAQUE_HEX_COLOR_REGEX)
-	@Transform(({ value }: { value: string }) => (value.startsWith('#') ? value.slice(1) : value))
-	color: string;
+	@IsEmail()
+	email: string;
 
 	@IsOptional()
 	@IsString()
-	description?: string;
+	signature: string;
+
+	@IsOptional()
+	@Matches(OPAQUE_HEX_COLOR_REGEX)
+	@Transform(({ value }: { value: string }) => (value.startsWith('#') ? value.slice(1) : value))
+	color: string;
 }

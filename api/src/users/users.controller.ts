@@ -1,18 +1,24 @@
 import {
+  Body,
   Controller,
   Get,
   Param,
+  Patch,
   Query,
   ServiceUnavailableException,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import type { SearchResponse } from 'typesense/lib/Typesense/Documents';
 import { TypesenseError } from 'typesense/lib/Typesense/Errors';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { config } from '../config';
+import { CurrentUser } from '../shared/lib/decorators/current-user.decorator';
 import { SearchDto } from '../shared/modules/search/search.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 import { UserSearchService } from './user-search.service';
 import type { IndexedUser } from './user-search.service';
-import type { User } from './user.entity';
+import { User } from './user.entity';
 import { UsersService } from './users.service';
 
 @ApiTags('Users')
@@ -45,5 +51,11 @@ export class UsersController {
         this.userSearchService.throwHttpExceptionFromTypesenseError(error);
       throw error;
     }
+  }
+
+  @Patch('update')
+  @UseGuards(JwtAuthGuard)
+  public async updateOne(@CurrentUser() user: User, @Body() updateUserDto: UpdateUserDto): Promise<User | {}> {
+    return await this.usersService.updateUser(user.userId, updateUserDto);
   }
 }
