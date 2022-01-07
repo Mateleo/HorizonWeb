@@ -55,7 +55,7 @@ export class UsersController {
 
   @Patch('update')
   @UseGuards(JwtAuthGuard)
-  public async updateOne(@CurrentUser() user: User, @Body() updateUserDto: UpdateUserDto): Promise<User | {}> {
+  public async updateOne(@CurrentUser() user: User, @Body() updateUserDto: UpdateUserDto): Promise<User> {
     return await this.usersService.updateUser(user.userId, updateUserDto);
   }
 }
