@@ -10,6 +10,7 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import type { SearchResponse } from 'typesense/lib/Typesense/Documents';
 import { TypesenseError } from 'typesense/lib/Typesense/Errors';
+import type { BadgeUnlock } from '../badges/badge-unlock.entity';
 import { config } from '../config';
 import { CurrentUser } from '../shared/lib/decorators/current-user.decorator';
 import { SearchDto } from '../shared/modules/search/search.dto';
@@ -30,6 +31,11 @@ export class UsersController {
   @Get(':username')
   public async findOne(@Param('username') username: string): Promise<User> {
     return await this.usersService.findOne(username);
+  }
+
+  @Get(':userId/badges')
+  public async findBadges(@Param('userId') userId: string): Promise<BadgeUnlock[]> {
+    return await this.usersService.findBadges(userId);
   }
 
   @Get('/search')

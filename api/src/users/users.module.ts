@@ -1,6 +1,7 @@
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import type { OnModuleInit } from '@nestjs/common';
 import { Module } from '@nestjs/common';
+import { BadgeUnlock } from '../badges/badge-unlock.entity';
 import { config } from '../config';
 import { UserSearchService } from './user-search.service';
 import { User } from './user.entity';
@@ -9,7 +10,7 @@ import { UsersService } from './users.service';
 
 @Module({
   imports: [
-    MikroOrmModule.forFeature([User]),
+    MikroOrmModule.forFeature([User, BadgeUnlock]),
   ],
   controllers: [UsersController],
   providers: [UsersService, UserSearchService],
